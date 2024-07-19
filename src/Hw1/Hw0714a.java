@@ -20,7 +20,13 @@ public class Hw0714a {
 		// DDDD
 		// EEEEE
 		// FFFFFF
-		
 		System.out.println("第七題===============");
+		char a = 'A';
+		for (int  x= 0; x < 6; x++) { //A-F有六個值
+			for (int y = 0; y <= x; y++) { //第幾列等於該值
+				System.out.print((char) (a + x)); //顯示值及個別數量
+			}
+			System.out.println();
+		}
 	}
 }
