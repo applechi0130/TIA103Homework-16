@@ -1,0 +1,24 @@
+delimiter #
+CREATE PROCEDURE insert_emp
+(
+  IN empno INT, 
+  IN ename VARCHAR(30), 
+  IN job VARCHAR(20),
+  IN hiredate DATE,
+  IN sal DOUBLE,
+  IN comm DOUBLE,
+  IN deptno INT
+)
+BEGIN
+INSERT INTO employee VALUES (empno, ename, job, hiredate, sal, comm, deptno);
+END #
+delimiter ;
+
+=============================================================
+
+delimiter #
+CREATE PROCEDURE get_sal_avg(IN value DOUBLE, OUT average DOUBLE)
+BEGIN
+  SELECT avg(SAL) INTO average FROM employee WHERE sal <= value;
+END #
+delimiter ;

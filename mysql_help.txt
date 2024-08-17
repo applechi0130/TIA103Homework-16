@@ -1,0 +1,46 @@
+若忘記root的密碼，可依以下步驟重設密碼 (for Windows)
+1. 停止MySQL : 工作管理員 → 服務 → MySQL → 右鍵 → 停止
+
+2. 新建更改密碼敘述檔 :
+檔案總管 → C槽 → 右鍵 → 新增 → 文字文件 → 檔名 mysql-init.txt → 內容 alter user 'root'@'localhost' identified by '新密碼';
+
+3. 啟動MySQL，同時執行步驟2建立的更改密碼敘述檔 cmd(系統管理員) → mysqld --init-file=C:\mysql-init.txt --console
+
+4. 停止MySQL : 關閉步驟3開啟的cmd
+
+5. 啟動MySQL : 工作管理員 → 服務 → MySQL 右鍵 → 啟動
+
+===========================================================================
+
+若忘記root的密碼，可依以下步驟重設密碼 (for macOS) 以下動作皆在終端機(Terminal)中操作
+1.停止MySQL 
+sudo lsof -i tcp:3306
+sudo kill -9 MySQL的PID
+
+2.用安全模式 且 跳過驗證方式 啟動MySQL
+mysqld_safe --skip-grant-tables
+
+3.匿名登入MySQL
+mysql
+
+4.清除密碼
+update mysql.user set authentication_string = null where user = 'root';
+flush privileges;
+
+5.重設密碼
+alter user 'root'@'localhost' identified with caching_sha2_password by '新密碼';
+
+6.離開MySQL
+exit
+
+7.停止MySQL(安全模式)
+ps -ef | grep mysql
+kill -9 MySQL的PID
+*註: 有2個Process需要殺
+
+8.啟動MySQL
+mysqld
+
+9.登入
+mysql –u root –p
+輸入新密碼

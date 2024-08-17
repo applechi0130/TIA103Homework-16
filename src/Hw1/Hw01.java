@@ -1,6 +1,6 @@
 package Hw1;
 
-public class Hw0712 {
+public class Hw01 {
 	public static void main(String[]args) {
 		//請設計一隻Java程式,計算12,6這兩個數值的和與積
 		System.out.println("第一題===============");
@@ -44,8 +44,16 @@ public class Hw0712 {
 		//	5 + ‘5’
 		//	5 + “5”
 		System.out.println("第六題===============");
+		int a = 5 , b = 5;
+		System.out.print( "5 + 5 = "); 
+		System.out.println(a + b); //為數字相加
 		
+		int c = 5; char d = '\u0035';
+		System.out.print( "5 + ‘5’ = "); 
+		System.out.println(c + d); // char為字元,會轉成unicode
 		
-		
+		int e = 5 ; String f = "5" ;
+		System.out.print( "5 + “5” = "); 
+		System.out.println(e + f); // String為字串,會直接顯示雙引號內的字串
 	}
 }

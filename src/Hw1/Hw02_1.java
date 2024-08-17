@@ -1,6 +1,6 @@
 package Hw1;
 
-public class Hw0714 {
+public class Hw02_1 {
 	public static void main(String[] args) {
 		// 計算1~1000的偶數和 (2+4+6+8+...+1000)
 		System.out.println("第一題===============");
